@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><!--Published on : 2014-05-24T13:14:56.185Z-->
+<metadata xmlns:classtypes="dummy" xmlns:str="http://exslt.org/strings" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:exsl="http://exslt.org/common" id="HBO" xsi:noNamespaceSchemaLocation="inventoryadmin.xsd">
+   <series>
+      <unique-id>test123</unique-id>
+      <description>
+         <title>
+            <short><![CDATA[Test]]></short>
+            <long><![CDATA[Test]]></long>
+         </title>
+         <synopsis>
+            <short><![CDATA[Please use this metadata file only for testing]]></short>
+            <long><![CDATA[Please use this metadata file only for testing]]></long>
+         </synopsis>
+      </description>
+      <images>
+         <image type="SERIES_1300x500_B">
+            <unique-id>123456</unique-id>
+            <filename>images/hbo/series/test123/test123_1300x500.jpg</filename>
+            <filesize>0</filesize>
+            <checksum>0</checksum>
+         </image>
+         <image type="SERIES_400x90">
+            <unique-id>1234567</unique-id>
+            <filename>images/hbo/series/test123/test123_400x90.png</filename>
+            <filesize>0</filesize>
+            <checksum>0</checksum>
+         </image>
+      </images>
+   </series>
+   <season>
+      <unique-id>test234</unique-id>
+      <description>
+         <title>
+            <short><![CDATA[Test 1]]></short>
+            <long><![CDATA[Test 1]]></long>
+         </title>
+         <synopsis>
+            <short><![CDATA[Please use this only for test]]></short>
+            <long><![CDATA[Please use this only for test]]></long>
+         </synopsis>
+      </description>
+      <episodes>13</episodes>
+      <season-number>1</season-number>
+      <season-qualifier/>
+      <images>
+         <image type="THUMB_MEDIUM">
+            <unique-id>123</unique-id>
+            <filename>images/hbo/season/test234/123_100x50.jpg</filename>
+            <filesize>0</filesize>
+            <checksum>0</checksum>
+         </image>
+         <image type="SLIDESHOW">
+            <unique-id>1234</unique-id>
+            <filename>images/hbo/season/test234/1234_754x424.jpg</filename>
+            <filesize>0</filesize>
+            <checksum>0</checksum>
+         </image>
+      </images>
+      <has-season-pass>false</has-season-pass>
+   </season>
+   <feature>
+      <unique-id>test555</unique-id>
+      <format-id>test666</format-id>
+      <focus-id>test777</focus-id>
+      <pid>test888</pid>
+      <HBO-internal-id>test999</HBO-internal-id>
+      <evergreen>Y</evergreen>
+      <categories>
+         <category><![CDATA[Test]]></category>
+      </categories>
+      <episode-number>
+         <in-season>13</in-season>
+         <in-series>13</in-series>
+      </episode-number>
+      <description>
+         <title>
+            <short><![CDATA[Test]]></short>
+            <long><![CDATA[Test]]></long>
+         </title>
+         <synopsis>
+            <short><![CDATA[Please use it only for test]]></short>
+            <long><![CDATA[Please use it only for test]]></long>
+         </synopsis>
+      </description>
+      <images>
+         <image type="DETAILS_300x130">
+            <unique-id>efc2630f8d3da496a53f3cf1584f1adf21fa7078</unique-id>
+            <filename>images/hbo/asset/test555/test555_300x130.jpg</filename>
+            <filesize>0</filesize>
+            <checksum>0</checksum>
+         </image>
+         <image type="THUMB_180x80">
+            <unique-id>e6f4a36aac8c30a81fc465c54591e0cd1ada790e</unique-id>
+            <filename>images/hbo/asset/test555/test555_180x80.jpg</filename>
+            <filesize>0</filesize>
+            <checksum>0</checksum>
+         </image>
+      </images>
+      <offering>
+         <unique-id>1234555</unique-id>
+         <start-date>2011-05-23T01:00:00Z</start-date>
+         <end-date>2016-01-01T10:59:00Z</end-date>
+      </offering>
+      <rating>TVMA</rating>
+      <advisories>
+         <advisory>AC</advisory>
+         <advisory>AL</advisory>
+         <advisory>N</advisory>
+         <advisory>V</advisory>
+      </advisories>
+      <language>ENG</language>
+      <sub-dub/>
+      <release-year>2011</release-year>
+      <parties>
+         <party billing="1" role_type="ACTOR">
+            <unique-id>test123</unique-id>
+            <first-name><![CDATA[Test]]></first-name>
+            <last-name><![CDATA[TestTest]]></last-name>
+            <role>Actor</role>
+            <character>Test Case</character>
+         </party>
+         <party billing="10" role_type="ACTOR">
+            <unique-id>test234</unique-id>
+            <first-name><![CDATA[Test1]]></first-name>
+            <last-name><![CDATA[TestTest1]]></last-name>
+            <role>Actor</role>
+            <character>Test Case1</character>
+         </party>
+      </parties>
+      <videos>
+         <video type="FEATURE-PRO87">
+            <unique-id>test_pro87</unique-id>
+            <filename>videos/PRO87/test555/test_PRO87.tar</filename>
+            <runtime>2222</runtime>
+            <filesize>0</filesize>
+            <checksum>0</checksum>
+            <video-type>test</video-type>
+            <audio-type>testtest</audio-type>
+            <closed-caption>
+               <filename>captions/PRO87/test555/test_PRO87_CC.tar</filename>
+               <filesize>0</filesize>
+               <checksum>0</checksum>
+               <languages>
+                  <language>ENG</language>
+               </languages>
+            </closed-caption>
+         </video>
+         <video type="FEATURE-PRO88">
+            <unique-id>test_PRO88</unique-id>
+            <filename>videos/PRO88/test555/test_PRO88.tar</filename>
+            <runtime>0</runtime>
+            <filesize>2000</filesize>
+            <checksum>0</checksum>
+            <video-type>test</video-type>
+            <audio-type>testtest</audio-type>
+            <closed-caption>
+               <filename>captions/PRO88/test555/test555_PRO88_CC.tar</filename>
+               <filesize>0</filesize>
+               <checksum>0</checksum>
+               <languages>
+                  <language>ENG</language>
+               </languages>
+            </closed-caption>
+         </video>
+      </videos>   
+      <product-type>SRS</product-type>
+      <credit-start-time>00:51:31:17</credit-start-time>
+   </feature>
+</metadata>

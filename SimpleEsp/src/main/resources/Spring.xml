@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+        http://www.springframework.org/schema/data/mongo    
+        http://www.springframework.org/schema/data/mongo/spring-mongo-1.1.xsd   
+        http://www.springframework.org/schema/context  
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/rabbit
+       	http://www.springframework.org/schema/rabbit/spring-rabbit-1.3.xsd 
+       	http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd ">
+
+	<!-- scanning these packages, once found  anotations, the spring contain will inject dependencies  -->
+	<context:component-scan base-package="com.pwc.exercise.dao" />
+	<context:component-scan base-package="com.pwc.exercise.service" />
+	<context:component-scan base-package="com.pwc.exercise.listener"/>
+	
+	<bean id="domainDao" class ="com.pwc.exercise.dao.DomainDaoImpl"/>
+	<bean id ="parserService" class ="com.pwc.exercise.service.ParserService"/>
+	<bean id ="mongoService" class ="com.pwc.exercise.service.MongoService"/>
+	<bean id ="jsonService" class ="com.pwc.exercise.service.JsonPackageGeneraterService"/>
+	
+	<!-- mongoDB server ip address and port number -->
+	<mongo:mongo host="127.0.0.1" port="27017" />
+
+	<!--the factory of mongoDB,an instance can be obtained via the factory, dbname as the database name of mongoDB, it will produce if not exist  -->
+	<mongo:db-factory dbname="pwc"/>
+
+	<!-- mongoTemplate can be used to do CRUD operation -->
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+	</bean>
+
+
+	<!-- amqpTemplate is used to send message -->
+	<rabbit:template id="amqpTemplate" connection-factory="connectionFactory"
+		exchange="transferExchage"/>
+
+	<!-- admin is used to manage all configuration for Spring amqp -->
+	<rabbit:admin connection-factory="connectionFactory" />
+
+	<!--the names of queue sets -->
+	<rabbit:queue name="MessageConsumer"/>
+	<rabbit:queue name="ReceivingQueue" />
+	<rabbit:queue name="errorMessage"/>
+	
+
+	<!--set a direct-exchange named "transferExchage", binding with myQueue,routing-key is pwc-->
+	<rabbit:direct-exchange name="transferExchage">
+		<rabbit:bindings>
+			<rabbit:binding queue="MessageConsumer" key="successful" />
+		</rabbit:bindings>
+	</rabbit:direct-exchange>
+	
+	<rabbit:direct-exchange name="transferExchage">
+		<rabbit:bindings>
+			<rabbit:binding queue="errorMessage" key="error" />
+		</rabbit:bindings>
+	</rabbit:direct-exchange>
+
+	<!-- build a connection,the cilent ip is localhost, port number is 5672 -->
+	<rabbit:connection-factory id="connectionFactory" 
+	host="localhost" port="5672"/>
+		
+
+	<!-- build a listenr on queue"romoting.queue",once recieved a message,spring ampq will deal with it -->
+	<rabbit:listener-container
+		connection-factory="connectionFactory">
+		<rabbit:listener ref="listener" queue-names="ReceivingQueue" />
+	</rabbit:listener-container>
+
+	<bean id="listener" class="com.pwc.exercise.listener.MessageReceiver" />
+
+
+</beans>  

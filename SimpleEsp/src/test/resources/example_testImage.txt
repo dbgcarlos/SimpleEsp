@@ -1,0 +1,8 @@
+<images>
+         <image type="SERIES_1300x500_B">
+            <unique-id>123456</unique-id>
+            <filename>images/hbo/series/test123/test123_1300x500.jpg</filename>
+            <filesize>0</filesize>
+            <checksum>0</checksum>
+         </image>
+        </images 

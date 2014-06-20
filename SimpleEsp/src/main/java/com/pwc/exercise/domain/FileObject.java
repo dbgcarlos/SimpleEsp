@@ -2,11 +2,12 @@ package com.pwc.exercise.domain;
 
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "FileObject")
 public class FileObject {
-	//@Id
+	@Id
 	private String package_id;
 	private List<Video> videos;
 	private List<Image> images;

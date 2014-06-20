@@ -24,7 +24,7 @@ public class MongoService {
 
 		log.info("------------------------------------------------------");
 		log.info("start to save package: ");
-		log.info(fileObject.getPackage_id());
+		//log.info(fileObject.getPackage_id());
 		this.domainDao.insertFileObject(acquire_fo);
 		
 		

@@ -28,7 +28,7 @@
 	<mongo:mongo host="127.0.0.1" port="27017" />
 
 	<!--the factory of mongoDB,an instance can be obtained via the factory, dbname as the database name of mongoDB, it will produce if not exist  -->
-	<mongo:db-factory dbname="pwc"/>
+	<mongo:db-factory dbname="SimpleEsp"/>
 
 	<!-- mongoTemplate can be used to do CRUD operation -->
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">

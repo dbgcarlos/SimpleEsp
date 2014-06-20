@@ -55,8 +55,8 @@ public class ParserService {
 			DocumentBuilder builder = builderFactory.newDocumentBuilder();
 			Document xmlDocument = builder.parse(receMsg);
 
-			String new_packageId = this.idGenerator();
-			new_fo.setPackage_id(new_packageId);
+			//String new_packageId = this.idGenerator();
+			//new_fo.setPackage_id(new_packageId);
 			// domainDao.insertFileId(new_fo.getPackage_id());
 
 			// get all image nodes via parser
@@ -317,15 +317,16 @@ public class ParserService {
 	/**
 	 * generate a new package id, if the new id exists,regenerate a new one
 	 * until it meets the request.
+	 * No longer use
 	 */
-	public String idGenerator() {
-		String new_packageId = null;
-		do {
-			new_packageId = GenerateIdService.generatePackageId();
-
-		} while (domainDao.findFileObjectId().contains(new_packageId));
-		return new_packageId;
-	}
+//	public String idGenerator() {
+//		String new_packageId = null;
+//		do {
+//			new_packageId = GenerateIdService.generatePackageId();
+//
+//		} while (domainDao.findFileObjectId().contains(new_packageId));
+//		return new_packageId;
+//	}
 
 	public DomainDao getDomainDao() {
 		return domainDao;

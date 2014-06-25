@@ -15,8 +15,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -26,7 +24,7 @@ import com.pwc.exercise.domain.Image;
 import com.pwc.exercise.domain.Video;
 
 public class ParserServiceTest {
-	private static final Log log = LogFactory.getLog(ParserServiceTest.class);
+	//private static final Log log = LogFactory.getLog(ParserServiceTest.class);
 
 	@Test
 	public void testParseImages() throws FileNotFoundException, SAXException, IOException, ParserConfigurationException, XPathExpressionException{

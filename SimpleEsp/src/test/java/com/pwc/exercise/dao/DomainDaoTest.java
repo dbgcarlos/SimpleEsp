@@ -291,84 +291,65 @@ public class DomainDaoTest {
 		EasyMock.verify(mongoTemplate);
 	}
 	
-	@Test
-	public void testfindFileObjectId() throws JsonGenerationException{
-		FileObject expectFo = new FileObject();
-		FileObject expectFo1 = new FileObject();
-		FileObject expectFo2 = new FileObject();
-		
-		expectFo.setPackage_id("321212");
-		expectFo1.setPackage_id("326597");
-		expectFo2.setPackage_id("323440");
-		
-		List<FileObject> list_FO = new ArrayList<FileObject>();
-		list_FO.add(expectFo);
-		list_FO.add(expectFo1);
-		list_FO.add(expectFo2);
-		
-		DomainDaoImpl domainDao = new DomainDaoImpl();
-		MongoTemplate mongoTemplate = EasyMock.createMock(MongoTemplate.class);
-		EasyMock.expect(
-				mongoTemplate.findAll(FileObject.class))
-				.andReturn(list_FO);
-		EasyMock.replay(mongoTemplate);
-		domainDao.setMongoTemplate(mongoTemplate);
-
-		List<String> result_Id = domainDao.findFileObjectId();
-		EasyMock.verify(mongoTemplate);
-		
-		assertEquals(3,result_Id.size());
-		
-	}
+//	public void testfindFileObjectId() throws JsonGenerationException{
+//		FileObject expectFo = new FileObject();
+//		FileObject expectFo1 = new FileObject();
+//		FileObject expectFo2 = new FileObject();
+//		
+//		expectFo.setPackage_id("321212");
+//		expectFo1.setPackage_id("326597");
+//		expectFo2.setPackage_id("323440");
+//		
+//		List<FileObject> list_FO = new ArrayList<FileObject>();
+//		list_FO.add(expectFo);
+//		list_FO.add(expectFo1);
+//		list_FO.add(expectFo2);
+//		
+//		DomainDaoImpl domainDao = new DomainDaoImpl();
+//		MongoTemplate mongoTemplate = EasyMock.createMock(MongoTemplate.class);
+//		EasyMock.expect(
+//				mongoTemplate.findAll(FileObject.class))
+//				.andReturn(list_FO);
+//		EasyMock.replay(mongoTemplate);
+//		domainDao.setMongoTemplate(mongoTemplate);
+//
+//		List<String> result_Id = domainDao.findFileObjectId();
+//		EasyMock.verify(mongoTemplate);
+//		
+//		assertEquals(3,result_Id.size());
+//		
+//	}
 	
-	@Test
-	public void testfindFileObjectIdwithRepetation() throws JsonGenerationException{
-		FileObject expectFo = new FileObject();
-		FileObject expectFo1 = new FileObject();
-		FileObject expectFo2 = new FileObject();
-		
-		expectFo.setPackage_id("321212");
-		expectFo1.setPackage_id("321212");
-		expectFo2.setPackage_id("323440");
-		
-		List<FileObject> list_FO = new ArrayList<FileObject>();
-		list_FO.add(expectFo);
-		list_FO.add(expectFo1);
-		list_FO.add(expectFo2);
-		
-		DomainDaoImpl domainDao = new DomainDaoImpl();
-		MongoTemplate mongoTemplate = EasyMock.createMock(MongoTemplate.class);
-		EasyMock.expect(
-				mongoTemplate.findAll(FileObject.class))
-				.andReturn(list_FO);
-		EasyMock.replay(mongoTemplate);
-		domainDao.setMongoTemplate(mongoTemplate);
-
-		List<String> result_Id = domainDao.findFileObjectId();
-		EasyMock.verify(mongoTemplate);
-		
-		assertEquals(2,result_Id.size());
-		
-	}
+//	public void testfindFileObjectIdwithRepetation() throws JsonGenerationException{
+//		FileObject expectFo = new FileObject();
+//		FileObject expectFo1 = new FileObject();
+//		FileObject expectFo2 = new FileObject();
+//		
+//		expectFo.setPackage_id("321212");
+//		expectFo1.setPackage_id("321212");
+//		expectFo2.setPackage_id("323440");
+//		
+//		List<FileObject> list_FO = new ArrayList<FileObject>();
+//		list_FO.add(expectFo);
+//		list_FO.add(expectFo1);
+//		list_FO.add(expectFo2);
+//		
+//		DomainDaoImpl domainDao = new DomainDaoImpl();
+//		MongoTemplate mongoTemplate = EasyMock.createMock(MongoTemplate.class);
+//		EasyMock.expect(
+//				mongoTemplate.findAll(FileObject.class))
+//				.andReturn(list_FO);
+//		EasyMock.replay(mongoTemplate);
+//		domainDao.setMongoTemplate(mongoTemplate);
+//
+//		List<String> result_Id = domainDao.findFileObjectId();
+//		EasyMock.verify(mongoTemplate);
+//		
+//		assertEquals(2,result_Id.size());
+//		
+//	}
 	
-	@Test
-	public void testfindFileObjectIdwithNull() throws JsonGenerationException{
-		List<FileObject> list_FO = null;
-		
-		DomainDaoImpl domainDao = new DomainDaoImpl();
-		MongoTemplate mongoTemplate = EasyMock.createMock(MongoTemplate.class);
-		EasyMock.expect(
-				mongoTemplate.findAll(FileObject.class))
-				.andReturn(list_FO);
-		EasyMock.replay(mongoTemplate);
-		domainDao.setMongoTemplate(mongoTemplate);
-
-		List<String> result_Id = domainDao.findFileObjectId();
-		EasyMock.verify(mongoTemplate);
-		
-		assertNull(result_Id);
-		
-	}
+	
 	
 //	@Test
 //	public void testInsertVideo() {

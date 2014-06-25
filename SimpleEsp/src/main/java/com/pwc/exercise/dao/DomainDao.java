@@ -14,7 +14,7 @@ public interface DomainDao {
 	public FileObject findFileObject(String packageId)throws SimpleEspException;
 	
 	//query all packages' id from DB
-	public List<String> findFileObjectId();
+	//public List<String> findFileObjectId();
 	
 	//insert a video object
 	//public void insertVideo(Video video);

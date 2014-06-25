@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.codehaus.jackson.JsonGenerationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -51,22 +50,22 @@ public class DomainDaoImpl implements DomainDao {
 	/**
 	 * find all packages' packageId
 	 * */
-	public List<String> findFileObjectId() {
-		List<FileObject> result = this.mongoTemplate.findAll(FileObject.class);
-		List<String> result_id = null;
-		if (result == null) {
-			log.info("ID list is not found.");
-		} else {
-			result_id = new ArrayList<String>();
-			for (FileObject fo : result) {
-				if (result_id.contains(fo.getPackage_id()))
-					continue;
-				else
-					result_id.add(fo.getPackage_id());
-			}
-		}
-		return result_id;
-	}
+//	public List<String> findFileObjectId() {
+//		List<FileObject> result = this.mongoTemplate.findAll(FileObject.class);
+//		List<String> result_id = null;
+//		if (result == null) {
+//			log.info("ID list is not found.");
+//		} else {
+//			result_id = new ArrayList<String>();
+//			for (FileObject fo : result) {
+//				if (result_id.contains(fo.getPackage_id()))
+//					continue;
+//				else
+//					result_id.add(fo.getPackage_id());
+//			}
+//		}
+//		return result_id;
+//	}
 	
 
 	/**

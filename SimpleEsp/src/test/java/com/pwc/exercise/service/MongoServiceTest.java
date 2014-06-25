@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.codehaus.jackson.JsonGenerationException;
 import org.easymock.Capture;
 import org.easymock.CaptureType;
 import org.easymock.classextension.EasyMock;

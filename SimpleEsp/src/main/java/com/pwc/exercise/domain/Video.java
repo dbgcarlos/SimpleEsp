@@ -10,6 +10,14 @@ public class Video {
 	private String status;
 	private String runtime;
 	private String type;
+	private int fileSize;
+	
+	public int getFileSize() {
+		return fileSize;
+	}
+	public void setFileSize(int fileSize) {
+		this.fileSize = fileSize;
+	}
 	
 	public String getFileName() {
 		return fileName;

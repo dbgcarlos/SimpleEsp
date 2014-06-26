@@ -148,15 +148,18 @@ public class ParserService {
 						new_Image.setLengthx(length_split3[0]);
 						new_Image.setLengthy(length_split3[1]);
 
-						parseredImages.add(new_Image);
-
 						log.info("the path is: " + path);
 						log.info("the length is: " + length);
 						log.info("the lengthx is: " + length_split3[0]);
 						log.info("the lengthy is: " + length_split3[1]);
-					} else
+					} else if(childNode_image.getNodeName().equals("filesize")){
+						log.info("filesize: " + childNode_image.getTextContent());
+						new_Image.setFileName(childNode_image.getTextContent());
+					}
+					else
 						continue;
 				}
+				parseredImages.add(new_Image);
 				log.info("---------------------------------------------------------------------");
 			}
 		} catch (XPathExpressionException e) {
@@ -183,12 +186,12 @@ public class ParserService {
 
 			// get all video nodes
 			for (int i = 0; i < nodes_video.getLength(); i++) {
-				Video video = new Video();
+				Video new_Video = new Video();
 				//video.setPackage_id(new_packageId);
 				log.info("The new video type is: "
 						+ nodes_video.item(i).getAttributes().getNamedItem("type")
 								.getNodeValue());
-				video.setType(nodes_video.item(i).getAttributes()
+				new_Video.setType(nodes_video.item(i).getAttributes()
 						.getNamedItem("type").getNodeValue());
 				// get all video child nodes
 				for (int j = 0; j < nodes_video.item(i).getChildNodes().getLength(); j++) {
@@ -196,17 +199,17 @@ public class ParserService {
 							.item(j);
 					if (childNode_video.getNodeName().equals("unique-id")) {
 						log.info("unique-id: " + childNode_video.getTextContent());
-						video.setUniqueId(childNode_video.getTextContent());
+						new_Video.setUniqueId(childNode_video.getTextContent());
 					} else if (childNode_video.getNodeName().equals("runtime")) {
 						log.info("runtime: " + childNode_video.getTextContent());
-						video.setRuntime(childNode_video.getTextContent());
+						new_Video.setRuntime(childNode_video.getTextContent());
 					} else if (childNode_video.getNodeName().equals("filename")) {
 						log.info("filename: " + childNode_video.getTextContent());
 
 						// use regex to split String filename to get each value
 						// acquired
 						String fileName = childNode_video.getTextContent();
-						video.setFileName(childNode_video.getTextContent());
+						new_Video.setFileName(childNode_video.getTextContent());
 						String[] spilt_result = fileName.split("/");
 						String length = new String();
 						String path = new String();
@@ -220,17 +223,20 @@ public class ParserService {
 								array_length--;
 							}
 						}
-						video.setPath(path);
-						video.setStatus("NEW");
-
-						parseredVideos.add(video);
+						new_Video.setPath(path);
+						new_Video.setStatus("NEW");
 
 						log.info("the path is: " + path);
 						log.info("the length is: " + length);
 					}
-					else
+					else if(childNode_video.getNodeName().equals("filesize")){
+						log.info("filesize: " + childNode_video.getTextContent());
+						new_Video.setFileName(childNode_video.getTextContent());
+					}
+					else	
 						continue;
 				}
+				parseredVideos.add(new_Video);
 				log.info("---------------------------------------------------------------------");
 			}
 		} catch (XPathExpressionException e) {
@@ -251,13 +257,13 @@ public class ParserService {
 			parseredCCs = new ArrayList<CC>();
 			// get all cc nodes
 			for (int i = 0; i < nodes_cc.getLength(); i++) {
-				CC cc = new CC();
+				CC new_CC = new CC();
 				//cc.setPackage_id(new_packageId);
 				// get all cc child nodes
 				Node parent = nodes_cc.item(i).getParentNode();
 				String uniqueId = parent.getChildNodes().item(1)
 						.getTextContent();
-				cc.setUniqueId(uniqueId);
+				new_CC.setUniqueId(uniqueId);
 				log.info("cc unique id is: " + uniqueId);
 				for (int j = 0; j < nodes_cc.item(i).getChildNodes()
 						.getLength(); j++) {
@@ -266,7 +272,7 @@ public class ParserService {
 					if (childNode_cc.getNodeName().equals("filename")) {
 						log.info("filename: " + childNode_cc.getTextContent());
 						String fileName = childNode_cc.getTextContent();
-						cc.setFileName(childNode_cc.getTextContent());
+						new_CC.setFileName(childNode_cc.getTextContent());
 
 						// use regex to split String filename to get each value
 						// acquired
@@ -283,8 +289,8 @@ public class ParserService {
 								array_length--;
 							}
 						}
-						cc.setStatus("NEW");
-						cc.setPath(path);
+						new_CC.setStatus("NEW");
+						new_CC.setPath(path);
 
 						log.info("the path is: " + path);
 						log.info("the length is: " + length);
@@ -300,12 +306,15 @@ public class ParserService {
 								listLanguage.add(language.getTextContent());
 							}
 						}
-						cc.setLanguages(listLanguage);
-						parseredCCs.add(cc);
-
-					} else
+						new_CC.setLanguages(listLanguage);
+					} else if(childNode_cc.getNodeName().equals("filesize")){
+						log.info("filesize: " + childNode_cc.getTextContent());
+						new_CC.setFileName(childNode_cc.getTextContent());
+					}
+					else 
 						continue;
 				}
+				parseredCCs.add(new_CC);
 				log.info("---------------------------------------------------------------------");
 			}
 		} catch (XPathExpressionException e) {

@@ -9,9 +9,17 @@ public class CC {
 	private String uniqueId;
 	private String path;
 	private String status;
-	
+	private int fileSize;
 	private ArrayList<String> languages;
 	
+	
+	
+	public int getFileSize() {
+		return fileSize;
+	}
+	public void setFileSize(int fileSize) {
+		this.fileSize = fileSize;
+	}
 	public String getFileName() {
 		return fileName;
 	}

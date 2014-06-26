@@ -12,6 +12,14 @@ public class Image {
 	private String lengthx;
 	private String lengthy;
 	private String type;
+	private int fileSize;
+	
+	public int getFileSize() {
+		return fileSize;
+	}
+	public void setFileSize(int fileSize) {
+		this.fileSize = fileSize;
+	}
 	
 	public String getFileName() {
 		return fileName;

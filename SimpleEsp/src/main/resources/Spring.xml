@@ -63,9 +63,9 @@
 	</rabbit:direct-exchange>
 
 	<!-- build a connection,the cilent ip is localhost, port number is 5672 -->
-	<rabbit:connection-factory id="connectionFactory" 
-	host="localhost" port="5672"/>
-		
+	<rabbit:connection-factory id="connectionFactory" host="localhost"
+		port="5672" username="dbgcarlos" password="Tendykro1" />
+
 
 	<!-- build a listenr on queue"romoting.queue",once recieved a message,spring ampq will deal with it -->
 	<rabbit:listener-container
